@@ -10,23 +10,53 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar(
-       // backgroundColor: Colors.transparent,
-       // elevation: 0,
-      ),
-    //backgroundColor: Colors.transparent,
-        body: Stack(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: Text('welcome',style: TextStyle(color: Colors.white,fontSize: 33),),
-            )
-          ],
+    var arrColors = [Colors.amber,
+    Colors.orange,
+    Colors.grey,
+    Colors.black,
+    Colors.blue,
+    Colors.green,
+    Colors.purpleAccent,
+    Colors.brown];
+    return Scaffold(
+
+      body: GridView.count(crossAxisCount: 2,
+    //  mainAxisSpacing: 11,
+    //  crossAxisSpacing: 11,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(color: arrColors[0],),
         ),
-    ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(color: arrColors[1],),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(color: arrColors[2],),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(color: arrColors[3],),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(color: arrColors[4],),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(color: arrColors[5],),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(color: arrColors[6],),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(color: arrColors[7],),
+        ),
+        ],),
     );
   }
 }

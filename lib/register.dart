@@ -23,14 +23,14 @@ class _RegisterState extends State<Register> {
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(left: 35, top: 130),
+              padding: EdgeInsets.only(left: 35, top: 10),
               child: Text('Create Account', style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.23,
+                    top: MediaQuery.of(context).size.height * 0.10,
                     right: 35,
                     left: 35),
                 child: Column(
@@ -47,26 +47,27 @@ class _RegisterState extends State<Register> {
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(color: Colors.white)),
                           hintText: 'Name',
-                          hintStyle: TextStyle(color: Colors.black54),
+                          hintStyle: TextStyle(color: Colors.white),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 10,),
                     TextField(
                       decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(color: Colors.black)),
+                              borderSide: BorderSide(color: Colors.white)),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(color: Colors.white)),
                           filled: true,
                           hintText: 'Email',
+                          hintStyle: TextStyle(color: Colors.white),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
                     SizedBox(
-                      height: 20,),
+                      height: 10,),
                     TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -77,6 +78,7 @@ class _RegisterState extends State<Register> {
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(color: Colors.white)),
                           hintText: 'Password',
+                          hintStyle: TextStyle(color: Colors.white),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
@@ -88,7 +90,7 @@ class _RegisterState extends State<Register> {
                           Navigator.pushNamed(context, 'login');
                         }, child: Text('Sign in',style: TextStyle(
                           decoration: TextDecoration.underline,
-                          fontSize: 20, color: Color(0xff4c505b),
+                          fontSize: 20, color: Colors.white,
                         ),
                         )),
                       ],
