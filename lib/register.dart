@@ -1,3 +1,5 @@
+import 'dart:math';
+import '';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
@@ -8,6 +10,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  TextEditingController dateInputController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,84 +18,130 @@ class _RegisterState extends State<Register> {
           image: DecorationImage(
               image: AssetImage('assets/register.png'), fit: BoxFit.cover)),
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(left: 35, top: 10),
-              child: Text('Create Account', style: TextStyle(color: Colors.white, fontSize: 33),
+              padding: EdgeInsets.only(left: 35, top: 130),
+              child: Text(
+                'Create Acoount',
+                style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.10,
-                    right: 35,
-                    left: 35),
+                    top: MediaQuery.of(context).size.height * 0.3,
+                    right: 20,
+                    left: 10),
                 child: Column(
                   children: [
+                    TextField(
+                      decoration: InputDecoration(
+                          fillColor: Colors.grey.shade100,
+                          filled: true,
+                          hintText: 'Email',
+                          icon: Icon(
+                            Icons.email,
+                            color: Colors.white,
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                    ),
                     SizedBox(
                       height: 10,
                     ),
                     TextField(
                       decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.white)),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(color: Colors.white)),
-                          hintText: 'Name',
-                          hintStyle: TextStyle(color: Colors.white),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                    ),
-                    SizedBox(height: 10,),
-                    TextField(
-                      decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(color: Colors.white)),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(color: Colors.white)),
+                          fillColor: Colors.grey.shade100,
                           filled: true,
-                          hintText: 'Email',
-                          hintStyle: TextStyle(color: Colors.white),
+                          hintText: 'username',
+                          icon: Icon(
+                            Icons.people,
+                            color: Colors.white,
+                          ),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
                     SizedBox(
-                      height: 10,),
+                      height: 10,
+                    ),
                     TextField(
-                      obscureText: true,
                       decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(color: Colors.black)),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(color: Colors.white)),
-                          hintText: 'Password',
-                          hintStyle: TextStyle(color: Colors.white),
+                          fillColor: Colors.grey.shade100,
+                          filled: true,
+                          hintText: 'Mobile no',
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
-                    SizedBox(height: 40,),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                          fillColor: Colors.grey.shade100,
+                          filled: true,
+                          hintText: 'Hobbies',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                        decoration: InputDecoration(
+                            fillColor: Colors.grey.shade100,
+                            filled: true,
+                            hintText: 'Date of Birth',
+                            icon: Icon(
+                              Icons.calendar_month,
+                              color: Colors.white,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                      controller: dateInputController,
+                      readOnly: true,
+                      onTap: () async {
+                        DateTime? date = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1920),
+                            lastDate: DateTime(2025));
+                        if(date != null){
+                          dateInputController.text = "${date!.day.toString()}-${date!.month.toString()}-${date!.year.toString()}";
+                          };
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          fillColor: Colors.grey.shade100,
+                          filled: true,
+                          hintText: 'password',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TextButton(onPressed: (){
-                          Navigator.pushNamed(context, 'login');
-                        }, child: Text('Sign in',style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          fontSize: 20, color: Colors.white,
-                        ),
-                        )),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'login');
+                            },
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
+                            )),
                       ],
                     )
                   ],
