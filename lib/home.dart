@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:log_demo/detail.dart';
+import 'package:log_demo/textStyle.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -9,126 +11,295 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  List<Map> pizza = [{'img':'assets/food/pizza/pizza.png','name':'Capricciosa Pizza','Price':40},
+    {'img':'assets/food/pizza/p2.png','name':'Margherita Pizza','Price':15},
+    {'img':'assets/food/pizza/p1.png','name':'Grazianos Pizza','Price':20},
+    {'img':'assets/food/pizza/p4.png','name':'loaded cheese Pizza','Price':25},
+    {'img':'assets/food/pizza/p5.png','name':'Classic Pizza','Price':20},
+    {'img':'assets/food/pizza/p6.jpeg','name':'Hawaiian Pizza','Price':30},
+    {'img':'assets/food/pizza/p9.png','name':'Pepperoni Pizza','Price':25},];
+
+  List<Map> burger = [{'img':'assets/food/burger/burgur.png','name':'cheese ham burger','Price':35},
+    {'img':'assets/food/burger/b1.png','name':'alloo ticki burger','Price':10},
+    {'img':'assets/food/burger/b3.png','name':'veg burger','Price':15},
+    {'img':'assets/food/burger/b4.png','name':'chocolate burger','Price':30},
+    {'img':'assets/food/burger/b5.png','name':'Classic burger','Price':15},
+    {'img':'assets/food/burger/b6.png','name':'beef burger','Price':35},
+    {'img':'assets/food/burger/b8.png','name':'double loaded burger','Price':35},];
+
+  List<Map> momos = [{'img':'assets/food/momos/momes.png','name':'classic momos','Price':10},
+    {'img':'assets/food/momos/m1.png','name':'chocolate momos','Price':20},
+    {'img':'assets/food/momos/m3.png','name':'air fried momos','Price':18},
+    {'img':'assets/food/momos/m4.png','name':'fried momos','Price':14},
+    {'img':'assets/food/momos/m5.jpeg','name':'multi flavor momos','Price':22}];
+
+  List<Map> panipuri = [{'img':'assets/food/panipuri/panipuri.jpg','name':'classic panipuri','Price':20},
+    {'img':'assets/food/panipuri/pp1.jpeg','name':'dahi panipuri','Price':25},
+    {'img':'assets/food/panipuri/pp4.png','name':'fudina panipuri','Price':15},
+    {'img':'assets/food/panipuri/pp6.png','name':'chocolate panipuri','Price':25},
+    {'img':'assets/food/panipuri/pp7.png','name':'cheese bheal panipuri','Price':18},
+    {'img':'assets/food/panipuri/pp8.png','name':'savepuri','Price':18},];
+
+  List<Map> sandwich = [{'img':'assets/food/sandwich/s1.jpeg','name':'veg sandwich','Price':15},
+    {'img':'assets/food/sandwich/s3.png','name':'grilled sandwich','Price':20},
+    {'img':'assets/food/sandwich/s4.png','name':'paneer sandwich','Price':25},
+    {'img':'assets/food/sandwich/s5.png','name':'vagetable sandwich','Price':15},
+    {'img':'assets/food/sandwich/s6.jpg','name':'toasted sandwich','Price':20},
+    {'img':'assets/food/sandwich/s8.png','name':'cheese sandwich','Price':30},];
+
+  List<Map> colddrink = [{'img':'assets/food/colddrink/colddrink.jpeg','name':'beer','Price':35},
+    {'img':'assets/food/colddrink/c2.png','name':'coca cola','Price':10},
+    {'img':'assets/food/colddrink/c3.png','name':'sprite','Price':8},
+    {'img':'assets/food/colddrink/c4.png','name':'pepsi','Price':12},
+    {'img':'assets/food/colddrink/c5.png','name':' fanta','Price':10},
+    {'img':'assets/food/colddrink/c6.png','name':'thums up','Price':8},];
+
+  var grid = gridview(lst: [],);
+  @override
+  void initState() {
+    super.initState();
+    grid = gridview(lst: pizza);
+  }
+
   Widget build(BuildContext context) {
-    List<Map> data=[
-      {
-        'name':'1',
-        'image':'https://img4.nbstatic.in/tr:w-500/5bcdbd8d4cedfd000dcb65c1.jpg',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'2',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ28X-Y3SOVVk8Gpu1iM8MxRiIhgCrN5IT85w&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'3',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFvYL_zCJsRbk8R5KBdKwPBBLcvbwspt95tY9dUNwkz-HgIg2tgrBoRM6t4JV9iP0QXL0&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'4',
-        'image':'https://i.redd.it/tgtjpc4lfl451.png',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'5',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPE9Gj7S6OxsDbu0xmctchHtpsPs_TM8GklA&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'6',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiwG6hELXSeWHEQzcoeDGmWz0Z1v0Z_HdLkQ&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'7',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd4_56MFgmKN9pqwlznHyjZfLkiPqoV3mAMwnjCH1zY_6-SKslD_n9JYi024E0v-_-Pl8&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'8',
-        'image':'https://c8.alamy.com/comp/E08HY8/chole-bhature-chickpea-curry-with-fried-breads-punjabi-breakfast-dish-E08HY8.jpg',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'9',
-        'image':'https://cdn.shopify.com/s/files/1/0524/2113/2440/articles/vada_pav.jpg?v=1667301121',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'10',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTefWVnRSpxt-jX-wTTR7w1sRBw2D0EAuGmDw&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'11',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFs1p4cE-yNT9BhXF7lM57xcJrF5h4ITT47g&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'12',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMO2dTe0iWrrjEZzvq09vueTRzWRKgdLKeWA&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'13',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_iUGTpJOAd4Yd3E3GvUAARqeRTezllnAzA&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'14',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJJWBbaW1FwU9bZeKdhHqAtNpZZKEITjcS1w&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'15',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5KG-ilwxiw9w1q6pRncRbT_xJgb2SqP5rFg&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'16',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2NnmGHZYgHc7beDfMZNSyeGSvtRh3ZtSz8LebqPpVlD0WrJ0UazhBu6VgiP1hgsD6J6A&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'17',
-        'image':'https://thebigmansworld.com/wp-content/uploads/2021/04/keto-chocolate-milkshake4.jpeg',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'18',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzFKLvJIB8PLFiP6oGLmrcUTAlDE1bVUqXGw&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'19',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSni0huFxgm58MAD3Fx8OTgfbVyQ4Qjad643g&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      },
-      {
-        'name':'20',
-        'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq4JydedxIfozy8Vf1DK0hUASzpDd_SIVsRfLR7L925SdOD2IhReoKu2lMbxX0NFcJVeM&usqp=CAU',
-        'des':'cdnsvijnvjidv'
-      }
-    ];
-    return Scaffold(
-      body: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount
-        (crossAxisCount: 2/*,mainAxisSpacing: 11,crossAxisSpacing: 11*/),
-        itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Stack(
-            children: [
-              Container(decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(data[index]['image']),
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite),label: "Favorite"),
+            BottomNavigationBarItem(icon: Icon(Icons.add_shopping_cart),label: "Add to Cart")
+          ],
+        ),
+        backgroundColor: Color(0xFF232227),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: IconButton(onPressed: (){}, icon: Icon(Icons.sort_rounded,color: color,size: 35,)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: IconButton(onPressed: (){}, icon: Icon(Icons.search,color: color,size: 35,)),
+                )
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text("Fast Foods",style: headStyle(color),),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text("Delivered fresh and on time",style: TextStyle(color: Colors.white60,fontSize: 20),),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01,),
+            Container(height: MediaQuery.of(context).size.height * 0.001,
+              color: Colors.white60,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          grid = gridview(lst: pizza,);
+                          setState(() {
+
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/food/pizza/pizza.png'),
+                            backgroundColor: Colors.black,
+                            radius: 40,
+                          ),
+                        ),
+                      ),
+                      Text("Pizza",style: myStyle(),)
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          grid = gridview(lst: burger,);
+                          setState(() {
+
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/food/burger/burgur.png'),
+                            backgroundColor: Colors.black,
+                            radius: 40,
+                          ),
+                        ),
+                      ),
+                      Text("Burger",style: myStyle(),)
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          grid = gridview(lst: momos);
+                          setState(() {
+
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/food/momos/momes.png'),
+                            backgroundColor: Colors.black,
+                            radius: 40,
+                          ),
+                        ),
+                      ),
+                      Text("Momos",style: myStyle(),)
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          grid = gridview(lst: panipuri);
+                          setState(() {
+
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/food/panipuri/panipuri.jpg'),
+                            backgroundColor: Colors.black,
+                            radius: 40,
+                          ),
+                        ),
+                      ),
+                      Text("Panipuri",style: myStyle(),)
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          grid = gridview(lst: sandwich);
+                          setState(() {
+
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/food/sandwich/s1.jpeg'),
+                            backgroundColor: Colors.black,
+                            radius: 40,
+                          ),
+                        ),
+                      ),
+                      Text("Sandwich",style: myStyle(),)
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          grid = gridview(lst: colddrink);
+                          setState(() {
+
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/food/colddrink/colddrink.jpeg'),
+                            backgroundColor: Colors.black,
+                            radius: 40,
+                          ),
+                        ),
+                      ),
+                      Text("Cold Drink",style: myStyle(),)
+                    ],
+                  ),
+
+                ],
               ),
-              )),
-            ],
-          )
-        );
-      },itemCount: data.length,),
+            ),
+            Container(height: MediaQuery.of(context).size.height * .001,
+              color: Colors.white60,
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.001,),
+            Container(
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.height * .620,
+                child: grid
+
+            )],
+        ),
+      ),
     );
+  }
+}
+
+class gridview extends StatelessWidget {
+
+
+
+  final List<Map> lst;
+
+  const gridview({super.key,  required this.lst});
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), itemBuilder: (BuildContext context,int index){
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GestureDetector(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Detail(lst[index])));
+          },
+          child: Container(
+            //height: MediaQuery.of(context).size.height * .40,
+            decoration: BoxDecoration(
+                color: Color(0xFF232227),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [BoxShadow(
+                    color: Colors.black.withOpacity(0.4),
+                    spreadRadius: 1,
+                    blurRadius: 8
+                ),
+                ]),
+            child: Column(
+              children: [
+                Container(
+                    height: MediaQuery.of(context).size.height * .18,
+                    width: MediaQuery.of(context).size.height * .3,
+                    child: Hero(
+                        tag: 'pizzapic',
+                        child: Image.asset(lst[index]['img'],))),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(lst[index]['name'],style: myStyle1(),),
+                      Text(' \$'+lst[index]['Price'].toString(),style: myStyle1(),)
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+    },itemCount: lst.length,);
   }
 }
