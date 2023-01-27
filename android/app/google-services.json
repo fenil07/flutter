@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "971439140548",
+    "project_id": "restorent-demo-423a5",
+    "storage_bucket": "restorent-demo-423a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971439140548:android:68236dbe3bfcd476866391",
+        "android_client_info": {
+          "package_name": "com.example.log_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971439140548-a3cqoovtrtle0v9ekhfgkpel78k1feq7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSyk6doLziQs4P38YGaK64QCSNPnLQWqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971439140548-a3cqoovtrtle0v9ekhfgkpel78k1feq7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
