@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:log_demo/UserModel.dart';
@@ -17,7 +15,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  DateTime? date;
+  DateTime? dob;
   bool p = true;
   String gender = "";
   TextEditingController emailController = TextEditingController();
@@ -29,12 +27,12 @@ class _RegisterState extends State<Register> {
   void checkValues() {
     String email = emailController.text.trim();
     String mobno = phonenoController.text.trim();
-    String hobbies = hobbiesController.text.trim();
+    String hobby = hobbiesController.text.trim();
     String dob = dateInputController.text.trim();
     String password = passController.text.trim();
     if (email == "" ||
         mobno == "" ||
-        hobbies == "" ||
+        hobby == "" ||
         dob == "" ||
         password == "") {
       ScaffoldMessenger.of(context)
@@ -44,11 +42,11 @@ class _RegisterState extends State<Register> {
           .showSnackBar(SnackBar(content: Text("Please select gender")));
       }
     else {
-        register(email, mobno, hobbies, dob, password, gender);
+        register(email, mobno, hobby, dob, password, gender);
       }
     }
 
-    void register(String email, String mobno, String hobbies, String dob,
+    void register(String email, String mobno, String hobby, String dob,
         String password, String gender ) async {
       UserCredential? credential;
       try {
@@ -64,8 +62,8 @@ class _RegisterState extends State<Register> {
             uid: uid,
             email: email,
             mobno: mobno,
-            hobby: hobbies,
-            dob: date.toString(),
+            hobby: hobby,
+            dob: dob.toString(),
             password: password,
             gender: gender
         );

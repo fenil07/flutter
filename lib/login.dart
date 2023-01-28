@@ -24,15 +24,15 @@ class _LoginState extends State<Login> {
   void checkvalues(){
     String email=emailController.text.trim();
     String password=passController.text.trim();
-    Navigator.push(context, MaterialPageRoute(builder: (context) =>
-        Home(),));
-    // if(email==""||password==""){
-    //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    //       content: Text("Please fill all fields")));
-    // }
-    // else{
-    //   login(email,password);
-    // }
+   // Navigator.push(context, MaterialPageRoute(builder: (context) =>
+    //    Home(),));
+    if(email==""||password==""){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Please fill all fields")));
+    }
+    else{
+      login(email,password);
+    }
   }
 
   void login(String email,String password) async {
