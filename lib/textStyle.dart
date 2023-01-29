@@ -2,11 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+Color color = Colors.white;
 
 TextStyle myStyle(){
   return TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w400);
 }
-Color color = Colors.white;
+
 TextStyle headStyle(color){
   return TextStyle(fontSize: 34, fontWeight: FontWeight.bold, color: color);
 }

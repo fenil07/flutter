@@ -24,8 +24,6 @@ class _LoginState extends State<Login> {
   void checkvalues(){
     String email=emailController.text.trim();
     String password=passController.text.trim();
-   // Navigator.push(context, MaterialPageRoute(builder: (context) =>
-    //    Home(),));
     if(email==""||password==""){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Please fill all fields")));
@@ -131,7 +129,9 @@ class _LoginState extends State<Login> {
                           color: Colors.white,
                           child: Text("Login",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.black),),
                           onPressed: (){
-                            checkvalues();
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                               Home(),));
+                            //checkvalues();
                           }),
                       SizedBox(height: 40,),
                     ],

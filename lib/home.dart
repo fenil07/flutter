@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  List<Map> pizza = [{'img':'assets/food/pizza/pizza.png','name':'Capricciosa Pizza','Price':40},
+  List<Map> pizza = [{'img':'assets/food/pizza/pizza.png','name':'Capricciosa Pizza','Price':140},
     {'img':'assets/food/pizza/p2.png','name':'Margherita Pizza','Price':150},
     {'img':'assets/food/pizza/p1.png','name':'Grazianos Pizza','Price':200},
     {'img':'assets/food/pizza/p4.png','name':'loaded cheese Pizza','Price':250},
@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.black,
         ),
         drawer: Drawer(
-          backgroundColor: Colors.black,
+          backgroundColor: Color(0xFF3F4041),
           elevation: 15,
           child: Column(
             children: [
@@ -349,7 +349,7 @@ class _HomeState extends State<Home> {
             SizedBox(height: MediaQuery.of(context).size.height * 0.001,),
             Container(
                 width: MediaQuery.of(context).size.width * 1,
-                height: MediaQuery.of(context).size.height * .620,
+                height: MediaQuery.of(context).size.height * .700,
                 child: grid
             )],
         ),
@@ -386,9 +386,7 @@ class gridview extends StatelessWidget {
                 Container(
                     height: MediaQuery.of(context).size.height * .18,
                     width: MediaQuery.of(context).size.height * .3,
-                    child: Hero(
-                        tag: 'pizzapic',
-                        child: Image.asset(lst[index]['img'],))),
+                        child: Image.asset(lst[index]['img'])),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(

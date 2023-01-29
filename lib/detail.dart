@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:log_demo/textStyle.dart';
 
 class Detail extends StatefulWidget {
-
   Map item;
+
   Detail(this.item);
 
   @override
@@ -13,8 +13,10 @@ class Detail extends StatefulWidget {
 
 class _DetailState extends State<Detail> {
   int quantity = 1;
-  int? price ;
+  int? price;
+
   bool like = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,7 +32,7 @@ class _DetailState extends State<Detail> {
                         height: MediaQuery.of(context).size.height * 0.47,
                         width: MediaQuery.of(context).size.width * 1,
                         decoration: BoxDecoration(
-                          color: Colors.lightBlue,
+                          color: Colors.grey,
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.elliptical(200, 40),
                               bottomLeft: Radius.elliptical(200, 40)),
@@ -56,37 +58,17 @@ class _DetailState extends State<Detail> {
                                     decoration: BoxDecoration(
                                         color: Colors.blueGrey,
                                         borderRadius:
-                                        BorderRadius.circular(20)),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Text(
-                                        "Hot",
-                                        style: myStyleBlack(),
-                                      ),
-                                    ),
+                                            BorderRadius.circular(20)),
                                   ),
                                 ),
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.05,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Fresh",
-                                      style: myStyleBlack(),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.2,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
                                 ),
                                 Column(
                                   children: [
-                                    Text("₹"+widget.item['Price'].toString(),
+                                    Text(
+                                      "₹" + widget.item['Price'].toString(),
                                       style: headStyle(Colors.black),
                                     ),
                                     Text(
@@ -100,21 +82,24 @@ class _DetailState extends State<Detail> {
                           ],
                         ),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height * .150,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .150,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(padding: EdgeInsets.only(left: 10),
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
                             child: Text(
                               "Quantity",
-                              style: headStyle(color),
+                              style: myStyle(),
                             ),
                           ),
                           Container(
                             // height: 34,
                             //width: 140,
                             decoration: BoxDecoration(
-                                color: Colors.lightBlue,
+                                color: Colors.grey,
                                 borderRadius: BorderRadius.circular(26)),
 
                             child: Row(
@@ -129,11 +114,15 @@ class _DetailState extends State<Detail> {
                                       setState(() {});
                                     },
                                     child: Container(
-                                        height: MediaQuery.of(context).size.height * .07,
-                                        width: MediaQuery.of(context).size.width * .15,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                .07,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .15,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                            BorderRadius.circular(250),
+                                                BorderRadius.circular(250),
                                             color: Colors.white60),
                                         child: Icon(Icons.remove)),
                                   ),
@@ -151,44 +140,57 @@ class _DetailState extends State<Detail> {
                                       setState(() {});
                                     },
                                     child: Container(
-                                        height: MediaQuery.of(context).size.height * .07,
-                                        width: MediaQuery.of(context).size.width * .15,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                .07,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .15,
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                            BorderRadius.circular(250),
+                                                BorderRadius.circular(250),
                                             color: Colors.white60),
                                         child: Icon(Icons.add)),
                                   ),
                                 ),
-
                               ],
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.05,
+                      ),
                       Text(
                         "Total amount",
                         style: myStyle(),
                       ),
                       quantity != 1
                           ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.currency_rupee,color: color,size: 18,),
-                          Text(
-                            "$price",
-                            style: myStyle(),
-                          ),
-                        ],
-                      )
-                          : Text("₹"+
-                          widget.item['Price'].toString(),
-                        style: myStyle(),
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.currency_rupee,
+                                  color: color,
+                                  size: 18,
+                                ),
+                                Text(
+                                  "$price",
+                                  style: myStyle(),
+                                ),
+                              ],
+                            )
+                          : Text(
+                              "₹" + widget.item['Price'].toString(),
+                              style: myStyle(),
+                            ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .08,
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height * .08,),
-                      ElevatedButton(
-                          onPressed: () {}, child: Text("Place Order")),
+                      CupertinoButton(
+                          color: Colors.grey,
+                          onPressed: () {},
+                          child: Text("Place Order")),
                     ],
                   ),
                 ),
@@ -197,20 +199,28 @@ class _DetailState extends State<Detail> {
             Positioned(
               top: MediaQuery.of(context).size.height * .25,
               left: MediaQuery.of(context).size.width * .25,
-              child: Hero(
-                  tag: 'pizzapic', child: Image.asset(widget.item['img'])),
+              child: Image.asset(widget.item['img']),
               width: MediaQuery.of(context).size.width * .5,
               height: MediaQuery.of(context).size.height * .4,
             ),
             Positioned(
                 top: MediaQuery.of(context).size.height * 0.01,
                 right: MediaQuery.of(context).size.width * .01,
-                child: IconButton(onPressed: (){
-                  like = !like;
-                  setState(() {
-                  });
-                }, icon: like ? Icon(Icons.favorite_border,size: 34,) : Icon(Icons.favorite,size: 34,color: Colors.red,)
-                ))
+                child: IconButton(
+                    onPressed: () {
+                      like = !like;
+                      setState(() {});
+                    },
+                    icon: like
+                        ? Icon(
+                            Icons.favorite_border,
+                            size: 34,
+                          )
+                        : Icon(
+                            Icons.favorite,
+                            size: 34,
+                            color: Colors.black,
+                          )))
           ])),
     );
   }

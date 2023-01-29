@@ -7,7 +7,7 @@ class profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF232227),
+      backgroundColor: Color(0xFF464445),
       body: Center(
         child: Stack(
             children: [
@@ -20,7 +20,7 @@ class profile extends StatelessWidget {
                       height: MediaQuery.of(context).size.width * 0.74,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: Colors.black87
+                          color: Colors.black54
                       ),
                       child: Column(
                         children: [
@@ -30,7 +30,7 @@ class profile extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text("UserName",style: myStyle(),),
+                                child: Text("User Name",style: myStyle(),),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
