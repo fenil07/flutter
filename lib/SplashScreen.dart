@@ -20,17 +20,15 @@ class _SplashScreenState extends State<SplashScreen> {
           context, MaterialPageRoute(builder: (context) => Home()));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/splash.gif')
-            ),
-            color: Colors.black
-          ),
-          ),
+        decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage('assets/splash.gif')),
+            color: Colors.black),
+      ),
     );
   }
 }

@@ -38,12 +38,10 @@ class _RegisterState extends State<Register> {
         password == "") {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Please fill all fields")));
-    }
-    else if(mobno.length >10){
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Please enter a valid mobile no")));
-    }
-    else if (gender == "") {
+    } else if (mobno.length > 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Please enter a valid mobile no")));
+    } else if (gender == "") {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Please select gender")));
     } else {

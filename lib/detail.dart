@@ -114,8 +114,9 @@ class _DetailState extends State<Detail> {
                                       setState(() {});
                                     },
                                     child: CircleAvatar(
-
-                                        child: Icon(Icons.remove,color: Colors.black),backgroundColor: Colors.white),
+                                        child: Icon(Icons.remove,
+                                            color: Colors.black),
+                                        backgroundColor: Colors.white),
                                   ),
                                 ),
                                 Text(
@@ -131,7 +132,9 @@ class _DetailState extends State<Detail> {
                                       setState(() {});
                                     },
                                     child: CircleAvatar(
-                                        child: Icon(Icons.add,color: Colors.black),backgroundColor: Colors.white),
+                                        child: Icon(Icons.add,
+                                            color: Colors.black),
+                                        backgroundColor: Colors.white),
                                   ),
                                 ),
                               ],
