@@ -11,9 +11,8 @@ void main() async{
   await Firebase.initializeApp();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'SplashScreen',
+    initialRoute: 'login',
     routes: {
-      'SplashScreen':(context) => SplashScreen(),
      'login':(context) => Login(),
      'register':(context) => Register(),
      'home':(context) => Home(),

@@ -2,17 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:log_demo/SplashScreen.dart';
 import 'package:log_demo/UserModel.dart';
-import 'package:log_demo/home.dart';
 import 'package:log_demo/register.dart';
-
-void main() {
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Login()));
-}
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
-
   @override
   State<Login> createState() => _LoginState();
 }
@@ -32,7 +27,6 @@ class _LoginState extends State<Login> {
       login(email,password);
     }
   }
-
   void login(String email,String password) async {
     UserCredential? credential;
     try {
@@ -48,13 +42,12 @@ class _LoginState extends State<Login> {
       String uid=credential.user!.uid;
       DocumentSnapshot userdata = await FirebaseFirestore.instance.
       collection('user').doc(uid).get();
-          Navigator.push(context, MaterialPageRoute(builder: (context) =>
-          Home(),));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>
+          SplashScreen(),));
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Login Successful"))
       );
       UserModel userModel=UserModel.fromMap(userdata as Map<String,dynamic>);
-
     }
   }
   @override
@@ -62,10 +55,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        color: Colors.grey,
-        // decoration: BoxDecoration(
-        //     image: DecorationImage(
-        //         image: AssetImage('assets/login1.png'), fit: BoxFit.cover)),
+        color: Color(0xFF3F4041),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Stack(
@@ -129,9 +119,7 @@ class _LoginState extends State<Login> {
                           color: Colors.white,
                           child: Text("Login",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.black),),
                           onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                               Home(),));
-                            //checkvalues();
+                            checkvalues();
                           }),
                       SizedBox(height: 40,),
                     ],

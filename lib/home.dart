@@ -13,9 +13,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   List<Map> pizza = [{'img':'assets/food/pizza/pizza.png','name':'Capricciosa Pizza','Price':140},
-    {'img':'assets/food/pizza/p2.png','name':'Margherita Pizza','Price':150},
+    {'img':'assets/food/pizza/p2.png','name':'vegetable Pizza','Price':150},
     {'img':'assets/food/pizza/p1.png','name':'Grazianos Pizza','Price':200},
-    {'img':'assets/food/pizza/p4.png','name':'loaded cheese Pizza','Price':250},
+    {'img':'assets/food/pizza/p4.png','name':'cheese loaded Pizza','Price':250},
     {'img':'assets/food/pizza/p5.png','name':'Classic Pizza','Price':200},
     {'img':'assets/food/pizza/p6.jpeg','name':'Hawaiian Pizza','Price':300},
     {'img':'assets/food/pizza/p9.png','name':'Pepperoni Pizza','Price':250},];
@@ -61,7 +61,6 @@ class _HomeState extends State<Home> {
     super.initState();
     grid = gridview(lst: pizza);
   }
-
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:log_demo/login.dart';
+import 'package:log_demo/home.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,22 +17,20 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Login()));
+          context, MaterialPageRoute(builder: (context) => Home()));
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.black,
-        child: Center(
-            child: Text(
-          "Fast Food",
-          style: TextStyle(
-              fontWeight: FontWeight.w700, fontSize: 34, color: Colors.white),
-        )),
-      ),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/splash.gif')
+            ),
+            color: Colors.black
+          ),
+          ),
     );
   }
 }

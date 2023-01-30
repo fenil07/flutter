@@ -1,10 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:log_demo/UserModel.dart';
 import 'package:log_demo/textStyle.dart';
 
-class profile extends StatelessWidget {
+class profile extends StatefulWidget {
   const profile({Key? key}) : super(key: key);
-
   @override
+  State<profile> createState() => _profileState();
+}
+class _profileState extends State<profile> {
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF464445),
@@ -25,19 +31,6 @@ class profile extends StatelessWidget {
                       child: Column(
                         children: [
                           SizedBox(height: MediaQuery.of(context).size.width * 0.05,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text("User Name",style: myStyle(),),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text("",style: myStyle(),),
-                              ),
-                            ],
-                          ),
                           Container(
                             height: MediaQuery.of(context).size.height * 0.001,
                             color: Colors.white60,
@@ -119,5 +112,6 @@ class profile extends StatelessWidget {
             ]),
       ),
     );
+
   }
 }

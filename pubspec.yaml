@@ -40,6 +40,8 @@ dependencies:
   firebase_auth: ^4.2.5
   firebase_database: ^10.0.9
   cloud_firestore: ^4.3.1
+  animated_text_kit: ^4.2.2
+  email_validator: ^2.1.17
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +76,7 @@ flutter:
     - assets/food/panipuri/
     - assets/food/sandwich/
     - assets/food/colddrink/
+    -
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -87,12 +90,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+#  fonts:
+#    - family: FontMain
+#      fonts:
+#        - asset: assets/fonts/Pacifico-Regular.ttf
+       # - asset: fonts/Schyler-Regular.ttf
+
+       #  - asset: fonts/Schyler-Italic.ttf
+          #   style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
