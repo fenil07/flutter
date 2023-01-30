@@ -89,9 +89,6 @@ class _RegisterState extends State<Register> {
     return SafeArea(
       child: Container(
         color: Color(0xFF3F4041),
-        // decoration: BoxDecoration(
-        //     image: DecorationImage(
-        //         image: AssetImage('assets/register.png'), fit: BoxFit.cover)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Stack(

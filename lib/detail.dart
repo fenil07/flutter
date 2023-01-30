@@ -56,7 +56,7 @@ class _DetailState extends State<Detail> {
                                   padding: const EdgeInsets.only(left: 8.0),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        color: Colors.blueGrey,
+                                        color: Colors.grey,
                                         borderRadius:
                                             BorderRadius.circular(20)),
                                   ),
@@ -113,18 +113,9 @@ class _DetailState extends State<Detail> {
                                       price = widget.item['Price'] * quantity;
                                       setState(() {});
                                     },
-                                    child: Container(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                .07,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                .15,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(250),
-                                            color: Colors.white60),
-                                        child: Icon(Icons.remove)),
+                                    child: CircleAvatar(
+
+                                        child: Icon(Icons.remove,color: Colors.black),backgroundColor: Colors.white),
                                   ),
                                 ),
                                 Text(
@@ -139,18 +130,8 @@ class _DetailState extends State<Detail> {
                                       price = widget.item['Price'] * quantity;
                                       setState(() {});
                                     },
-                                    child: Container(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                .07,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                .15,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(250),
-                                            color: Colors.white60),
-                                        child: Icon(Icons.add)),
+                                    child: CircleAvatar(
+                                        child: Icon(Icons.add,color: Colors.black),backgroundColor: Colors.white),
                                   ),
                                 ),
                               ],

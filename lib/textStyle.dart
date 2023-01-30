@@ -12,9 +12,6 @@ TextStyle headStyle(color){
   return TextStyle(fontSize: 34, fontWeight: FontWeight.bold, color: color);
 }
 
-TextStyle linkStyle(){
-  return TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.blue, decoration: TextDecoration.underline);
-}
 TextStyle myStyleBlack(){
   return TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold);
 }

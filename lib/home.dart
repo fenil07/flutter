@@ -159,19 +159,6 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.all(15.0),
                   child: Row(
                     children: [
-                      Icon(Icons.lightbulb_outline_rounded,color: color,),
-                      SizedBox(width: MediaQuery.of(context).size.width * .05,),
-                      Text("FAQ",style: myStyle(),)
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: (){},
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Row(
-                    children: [
                       Icon(Icons.call,color: color,),
                       SizedBox(width: MediaQuery.of(context).size.width * .05,),
                       Text("Cantact Us",style: myStyle(),)
